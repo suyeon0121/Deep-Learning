@@ -1,29 +1,26 @@
 ## Iris Classification
 ### Overview
-iris 데이터셋을 대상으로 Multi-Layer Perception 기반 딥러닝 분류 모델을 구현한다.
-입력 feature 정규화, train/test 분리, softmax 기반 다중 분류 학습을 통해 딥러닝 분류의 전체 학습 흐름을 다룬다
+- Logistic Regression을 사용하여 iris 데이터셋의 세 가지 품종(setosa, versicolor, virginica)을 분류한다.
+- 입력 feature scaling과 다중 클래스 분류 설정을 포함한 전체 분류 파이프라인을 구현한다.
 
 ### Key Idea
-아이리스 분류는 다중 클래스 분류 문제
-입력 feature 간 스케일 차이는 학습 불안정을 유발하므로 정규화가 필요하다.
-MLP는 은닉층과 비선형 activation을 통해 복잡한 decision boundary를 학습할 수 있다. 
+- iris 데이터는 수치형 feature로 구성된 tabular 데이터이다.
+- 선형 결정 경계를 기반으로 하는 Logistic Regression으로도 높은 분류 성능을 얻을 수 있다.
+- 다중 클래스 문제이므로 multinomial Logistic Regression을 사용한다 
 
 ### Model Architecture
-- input: 4
-- Hidden layer: 2 layers, 16 neurons each
-- Output: 3
-- Fully connected MLP
-- ReLU activation (hidden layers)
-- Softmax activation (output layer)
+- input: 4 feature (sepal length, sepal width, petal length, petal width)
+- Model: Multinomial Logistic Regression
+- Output: 3-class probability distribution
 
-### Data Processing
-- Dataset: iris (150 samples, 3 classes)
-- Train/Test split: 80% / 20%
-- Feature scaling: StandardScaler
-- Label encoding: One-hot encoding
+### Training Setup
+- Feature Scaling: StandardScaler
+- Solver: lbfgs
+- Max Iterations: 200
+- Evaluation Metric: Accuracy
 
-### Training
-- Loss: Categorical Cross Entropy
+### Result
+간단한 선형 모델만으로도 iris 데이터의 클래스 구조를 효과적으로 분리할 수 있음을 확인
 - Optimizer: Adam
 - Batch size: 8
 - Epochs: 100

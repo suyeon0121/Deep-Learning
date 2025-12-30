@@ -1,45 +1,25 @@
-import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.utils import to_categorical
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report
 
 iris = load_iris()
-x = iris.data            # (150, 4)
-y = iris.target          # (150,)
+X = iris.data
+y = iris.target
 
-y = to_categorical(y, num_classes=3)
-
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.2, random_state=42
-)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 scaler = StandardScaler()
-x_train = scaler.fit_transform(x_train)
-x_test = scaler.transform(x_test)
+X_train = scaler.fit_transform(X_train)
+x_test = scaler.transform(X_test)
 
-model = Sequential()
-model.add(Dense(16, activation='relu', input_shape=(4,)))
-model.add(Dense(16, activation='relu'))
-model.add(Dense(3, activation='softmax'))
+model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=200)
 
-model.compile(
-    optimizer='adam',
-    loss='categorical_crossentropy',
-    metrics=['accuracy']
-)
+model.fit(X_train, y_train)
 
-model.fit(
-    x_train,
-    y_train,
-    epochs=100,
-    batch_size=8,
-    validation_split=0.2,
-    verbose=1
-)
+y_pred = model.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
 
-loss, acc = model.evaluate(x_test, y_test, verbose=0)
-print(f"Test Loss: {loss:.4f}")
 print(f"Test Accuracy: {acc:.4f}")
+print(classification_report(y_test, y_pred))

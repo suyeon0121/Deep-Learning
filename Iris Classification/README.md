@@ -21,8 +21,3 @@
 
 ### Result
 간단한 선형 모델만으로도 iris 데이터의 클래스 구조를 효과적으로 분리할 수 있음을 확인
-- Optimizer: Adam
-- Batch size: 8
-- Epochs: 100
-- Evaluation metric: Accuracy
-  

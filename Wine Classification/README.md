@@ -1,30 +1,20 @@
 ## Wine Classification
 ### Overview
-Wine 데이터셋을 대상으로 Multi-Layer Perceptron 기반 다중 분류 모델을 구현한다. 
-입력 feature 정규화와 train/test 분리를 포함한 딥러닝 분류의 표준 학습 파이프라인을 구성한다. 
+Logistic Regression을 사용하여 wine 데이터셋의 세 가지 클래스를 분류한다.
+전처리와 모델을 Pipeline으로 구성하여 재사용 가능한 분류 파이프라인을 구현한다.
 
 ### Key Idea
-Wine 데이터셋은 13차원 feature를 가지는 다중 클래스 분류 문제이다. 
-입력 feature 간 스케일 차이가 크므로 정규화가 필요하다
-MLP는 비선형 activation을 통해 클래스 간 복잡한 decision boundary를 학습할 수 있다. 
+Wine 데이터는 연속형 수치 feature로 구성된 tabular 데이터이다. 
+선형 결정 경계를 기반으로 하는 Logistic Regression으로도 충분히 분류 성능을 얻을 수 있다.
+다중 클래스 문제이므로 multinomial Logistic Regression을 사용한다. 
 
 ### Model Architecture
-- input: 13
-- Hidden layer: 2 layers (32, 16 neurons)
-- Output: 3
-- Fully connected MLP
-- ReLU activation (hidden layers)
-- Softmax activation (output layer)
-
-### Data Processing
-- Dataset: Wine (178 samples, 3 classes)
-- Train/Test split: 80% / 20%
-- Feature scaling: StandardScaler
-- Label encoding: One-hot encoding
+- input: 13 feature (wine chemical properties)
+- Model: Multinomial Logistic Regression
+- Output: 3-class probability distribution
 
 ### Training
-- Loss: Categorical Cross Entropy
-- Optimizer: Adam
-- Batch size: 8
-- Epochs: 100
+- Preprocessing: StandardScaler
+- Solver: lbfgs
+- Max Iterations: 200
 - Evaluation metric: Accuracy

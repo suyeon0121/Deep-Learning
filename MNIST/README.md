@@ -1,35 +1,23 @@
 ## MNIST Digit Classification
 ### Overview
-MNIST 숫자 데이터셋을 대상으로 Flatten 기반 MLP 분류 모델을 구현.
-이미지 데이터를 벡터로 변환할 때 발생하는 parameter 폭증 문제와 overfitting을 다룬다.
+MLP(Multi-Layer Perceptron)를 사용하여 MNIST 데이터셋의 손글씨 숫자를 분류한다. 
+이미지를 벡터로 변환하여 fully connected 신경망 기반 분류 파이프라인을 구성한다.
 
 ### Key Idea
-Flatten된 이미지 입력은 고차원 벡터를 생성하여 parameter 수를 급격히 증가시킨다. 
-과도한 parameter는 overfitting을 유발할 수 있다. 
-L2 regularization과 Dropout은 overfitting 완화를 위해 사용된다.
-SGD와 Adam optimizer의 학습 특성을 비교한다. 
+MNIST는 28x28 흑백 이미지로 구성된 데이터셋이다. 
+이미지를 1차원 벡터로 펼친 뒤, 비선형 활성화 함수를 가진 MLP로 분류를 수행한다. 
 
 ### Model Architecture
-- Input: 28 x 28 image
-- Flatten --> 784
-- Hidden layers: 512, 256 neurons
-- Output: 10
-- Fully connected MLP
-- ReLU activation
-- Softmax output
+- Input: 28 x 28 grayscale image
+- Flatten -> Linear(784 -> 256) -> ReLU -> Linear(256 -> 128) -> ReLU -> Linear(128 -> 10)
+- Output: 10-class logits
 
 ### Regularization
 - L2 regularization
 - Dropout (0.5)
 
-### Optimizer Comparison
-- SGD는 고정 learning rate를 사용하며 수렴 속도가 느린 편이다.
-- Adam은 adaptive learning rate를 사용해 초기 수렴 속도가 빠르다.
-- 따라서 동일한 epoch 조건에서 Adam이 더 빠르게 accuracy를 향상시키는 경향이 보인다.
-
 ### Training
-- Loss: Categorical Cross Entropy
-- Optimizaers: SGD, Adam
-- Batch size: 128
-- Epochs: 10
-- Evaluation metric: Accuracy
+- Loss Function: CrossEntropyLoss
+- Optimizaers: Adam(lr = 1e-3)
+- Batch size: 64
+- Epochs: 5

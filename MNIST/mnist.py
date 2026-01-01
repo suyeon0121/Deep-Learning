@@ -1,33 +1,64 @@
-import numpy as np
-from tensorflow.keras.datasets import mnist
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout, Flatten
-from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.regularizers import l2
-from tensorflow.keras.optimizers import SGD, Adam
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
 
-(X_train, y_train), (X_test, y_test) = mnist.load_data()
+transform = transforms.Compose([
+    transforms.ToTensor(), 
+    transforms.Normalize((0.1307,), (0.3081,))
+])
 
-X_train = X_train / 255.0
-X_test = X_test / 255.0
+train_dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
+test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
 
-y_train = to_categorical(y_train, 10)
-y_test = to_categorical(y_test, 10)
+train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 
-model = Sequential()
-model.add(Flatten(input_shape=(28, 28)))
-model.add(Dense(512, activation='relu', kernel_regularizer=l2(0.001)))
-model.add((Dropout(0.5)))
-model.add(Dense(256, activation='relu', kernel_regularizer=l2(0.001)))
-model.add(Dropout(0.5))
-model.add(Dense(10, activation='softmax'))
+class MLP(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(28 * 28, 256),
+            nn.ReLU(),
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Linear(128, 10)
+        )
+    
+    def forward(self, x):
+        x = x.view(x.size(0), -1)
+        return self.net(x)
+    
+model = MLP()
 
-optimizer = Adam()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=1e-3)
 
-model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+epochs = 5
+for epoch in range(epochs):
+    model.train()
+    total_loss = 0.0
 
-model.fit(X_train, y_train, epochs=10, batch_size=128, validation_split=0.2, verbose=1)
+    for images, labels in train_loader:
+        optimizer.zero_grad()
+        outputs = model(images)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        total_loss += loss.item()
+    print(f"Epoch [{epoch+1}/{epochs}], Loss: {total_loss:.4f}")
 
-loss, acc = model.evaluate(X_test, y_test, verbose=0)
-print(f"Test Loss: {loss:.4f}")
-print(f"Test Accuracy: {acc:.4f}")
+model.eval()
+correct = 0
+total = 0
+
+with torch.no_grad():
+    for images, labels in test_loader:
+        outputs = model(images)
+        preds = outputs.argmax(dim=1)
+        correct += (preds == labels).sum().item()
+        total += labels.size(0)
+
+accuracy = correct / total
+print("Test Accuracy:", accuracy)

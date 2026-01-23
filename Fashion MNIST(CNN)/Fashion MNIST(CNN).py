@@ -43,7 +43,7 @@ model = CNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
-for epoch in range(5):
+for epoch in range(100):
     model.train()
     for x, y in train_loader:
         optimizer.zero_grad()
@@ -52,4 +52,5 @@ for epoch in range(5):
         loss.backward()
         optimizer.step()
     
+
     print(f"Epoch {epoch}, Loss: {loss.item():.4f}")

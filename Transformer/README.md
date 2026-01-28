@@ -2,7 +2,7 @@
 ### Overview
 Attention Is All You Need 논문을 기반으로 Transformer Encoder-Decoder 구조 구현을 통해 공부
 RNN 없이 Self-Attention만으로 시퀀스 간 의존성을 학습한다. 
-
+ 
 ### Key Idea
 - 순서 정보는 Positional Encoding으로 보완
 - Self_Attention으로 모든 토큰 간 관계를 병렬적으로 학습

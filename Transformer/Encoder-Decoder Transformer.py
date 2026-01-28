@@ -100,6 +100,14 @@ class DecoderLayer(nn.Module):
         x = self.norm3(x + self.dropout(self.feed_forward(x)))
         return x
 
+def make_trg_mask(trg, pad_idx):
+    trg_pad_mask = (trg != pad_idx).unsqueeze(1).unsqueeze(2)
+    trg_len = trg.shape[1]
+    trg_sub_mask = torch.tril(
+    torch.ones((trg_len, trg_len), device=trg.device)).bool()
+    trg_sub_mask = trg_sub_mask.unsqueeze(0).unsqueeze(1)
+    return trg_pad_mask & trg_sub_mask
+
 class Transformer(nn.Module):
     def __init__(
             self,

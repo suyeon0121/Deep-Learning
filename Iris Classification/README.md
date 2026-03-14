@@ -45,19 +45,19 @@ Accuracy: 0.9333333333333333
 weighted avg       0.93      0.93      0.93        30
 
 ### Decision Boundary Visualization
-
+<img width="640" height="480" alt="Image" src="https://github.com/user-attachments/assets/b4ccf64c-cd89-4400-98fa-8514dadee0f0" />
 - setosa는 다른 클래스와 명확히 분리되었다.
 - versicolor와 virginica는 일부 영역에서 overlap 발생
 - Logistic Regression이 선형 경계로 feature 공간을 분리함을 확인
 
 ### PCA feature
-
+<img width="640" height="480" alt="Image" src="https://github.com/user-attachments/assets/43092fa2-7936-4685-9783-bb0c8e3bd203" />
 - setosa는 독립적인 cluster 형성
 - versicolor와 virginica는 일부 겹침
 - 데이터 구조가 완전히 선형적으로 분리되지 않음
 
 ### Confusion Matrix
-
+<img width="640" height="480" alt="Image" src="https://github.com/user-attachments/assets/356e7b8b-52de-492f-a1d2-ca8af13bd99a" />
 - setosa는 거의 완벽하게 분류됨
 - versicolor와 virginica 사이에서 오분류 발생
 - 두 클래스가 feature 공간에서 겹치는 구조와 일치

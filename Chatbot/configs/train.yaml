@@ -1,0 +1,18 @@
+model:
+  src_vocab_size: 8000
+  trg_vocab_size: 8000
+  d_model: 256
+  num_layers: 3
+  num_heads: 4
+  d_ff: 512
+  dropout: 0.1
+
+training:
+  batch_size: 32
+  epochs: 10
+  lr: 0.0003
+
+tokens:
+  pad_idx: 0
+  bos_idx: 1
+  eos_idx: 2

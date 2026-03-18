@@ -8,7 +8,7 @@ Encoer
 - Multi-head Self Attention
 - Feed Forward Network(GELU)
 - Residual Connection + LayerNorm
-<br/>
+
 Decoder
 - Masked Self Attention(causal mask)
 - Encoder-Decoder Attention (cross attention)

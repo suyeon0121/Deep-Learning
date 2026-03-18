@@ -47,10 +47,12 @@ trg: [BOS] answer [EOS]
 <br/>
 - Teacher Forcing을 사용하여 다음 토근을 예측
 <br/>
+
 ```
 input  : trg[:, :-1]
 target : trg[:, 1:]
 ```
+
 <br/>
 - Gradient Clipping(exploding gradient 방지)
 - Padding/Causal mask 적용

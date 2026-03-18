@@ -15,18 +15,19 @@ Decoder
 - Feed Forward Network
 - Residual Connection + LayerNorm
 <br/>
-<br/>
-1. Positional Encoding
-- Transformer는 순서 정보를 직접 다루지 않기 때문에, sin/cos 기반 positional encoding을 추가하여 토큰의 위치 정보를 반영한다.
-2. Multi-head Attention
-- 여러 attention head를 사용하여 문법, 의미, 장거리 의존성 등 다양한 관계를 병렬적으로 학습한다.
-3. Masking
-- Padding Mask: 의미 없는 padding token의 attention을 차단
-- Causal Mask: 미래 토큰 접근을 제한하여 autoregressive 구조 유지
-4. Weight Tying
-- Decoder embedding과 output projection을 공유하여 파라미터 수 감소 및 일반화 성능 향상
+
+- Positional Encoding
+   - Transformer는 순서 정보를 직접 다루지 않기 때문에, sin/cos 기반 positional encoding을 추가하여 토큰의 위치 정보를 반영한다.
+- Multi-head Attention
+   - 여러 attention head를 사용하여 문법, 의미, 장거리 의존성 등 다양한 관계를 병렬적으로 학습한다.
+- Masking
+   - Padding Mask: 의미 없는 padding token의 attention을 차단
+   - Causal Mask: 미래 토큰 접근을 제한하여 autoregressive 구조 유지
+- Weight Tying
+   - Decoder embedding과 output projection을 공유하여 파라미터 수 감소 및 일반화 성능 향상
    - Input Embedding: 단어(ID)를 보고 벡터로 변환 / Output Projection: 계산된 벡트를 보고 다시 어떤 단어인지 이름을 찾음
      - 즉, 입력과 출력을 하나로 통일하여 모델의 무게는 줄이고 성능은 높이
+
 <br/>
 ### Tokenizer
 - sentencePiece(Unigram)

@@ -46,6 +46,7 @@ trg: [BOS] answer [EOS]
 - Epochs: 50
 <br/>
 - Teacher Forcing을 사용하여 다음 토근을 예측
+<br/>
 ```
 input  : trg[:, :-1]
 target : trg[:, 1:]

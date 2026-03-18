@@ -30,6 +30,7 @@ Decoder
      - 즉, 입력과 출력을 하나로 통일하여 모델의 무게는 줄이고 성능은 높이
 
 <br/>
+
 ### Tokenizer
 - sentencePiece(Unigram)
 - vacabulary size: 8000
@@ -46,8 +47,11 @@ trg: [BOS] answer [EOS]
 - Optimizer: Adam(lr=1e-4)
 - Batch Size: 16
 - Epochs: 50
+
 <br/>
+
 - Teacher Forcing을 사용하여 다음 토근을 예측
+
 <br/>
 
 ```
@@ -56,6 +60,7 @@ target : trg[:, 1:]
 ```
 - Gradient Clipping(exploding gradient 방지)
 - Padding/Causal mask 적용
+
 <br/>
 
 ### Inference
@@ -69,6 +74,7 @@ Autoregressive Generation
 - 학습이 진행됨에 따라 loss 감소
 - 기본적인 문장 구조 생성
 - 데이터 규모가 작아 표현 다양성 제한
+
 <br/>
 
 ### Error

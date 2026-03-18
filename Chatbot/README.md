@@ -16,6 +16,7 @@ Decoder
 - Residual Connection + LayerNorm
 
 <br/>
+
 - Positional Encoding
    - Transformer는 순서 정보를 직접 다루지 않기 때문에, sin/cos 기반 positional encoding을 추가하여 토큰의 위치 정보를 반영한다.
 - Multi-head Attention

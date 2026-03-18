@@ -42,7 +42,7 @@ class Trainer:
             self.optimizer.zero_grad()
             loss.backward()
             
-            # Gradient Clipping (노트북 환경에서 학습 불안정 방지용 - 선택사항)
+            # Gradient Clipping (노트북 환경에서 학습 불안정 방지용)
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
             
             self.optimizer.step()

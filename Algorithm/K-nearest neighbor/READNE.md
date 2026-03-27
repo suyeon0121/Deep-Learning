@@ -2,10 +2,12 @@
 - K-최근접 이웃은 새로운 입력(학습에 사용하지 않은 새로운 데이터)을 받았을 때 기존 클러스터에서 모든 데이터와 인스턴스 기반 거리를 측정한 후 가장 많은 속성을 가진 클러스터에 할당하는 분류 알고리즘이다.
 - 즉, 과거 데이터를 사용하여 미리 분류 모형을 만드는 것이 아니라, 과거 데이터를 저장해 두고 필요할 때마다 비교를 수행하는 방식이다.
 
+<br/>
+
 ### 오류:
 - This StandardScaler instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
   - StandardScaler의 평균과 표준편차를 계산하는 과정이 fit이다.
--   데이터 변환(Transofrm)하기 전에, 기준을 잡는 학습(fit) 단계를 건너뛰어 오류 발생
+  - 데이터 변환(Transofrm)하기 전에, 기준을 잡는 학습(fit) 단계를 건너뛰어 오류 발생
 
 <br/>
 
@@ -24,5 +26,7 @@
 마지막에 수치가 아닌 시각화를 확인할 수 있도록 코드 추가
 - 정확도가 올라가거나 떨어지는 지점을 확인할 수 있다.
 
-<img width="770" height="479" alt="image" src="https://github.com/user-attachments/assets/c2c44391-013c-4b69-940e-5a69468f3423" />
+<br/>
+
+<img width="570" height="379" alt="image" src="https://github.com/user-attachments/assets/c2c44391-013c-4b69-940e-5a69468f3423" />
 

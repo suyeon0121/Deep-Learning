@@ -88,6 +88,21 @@
 <br/>
 <br/>
 
+### 결과 
 
+<img width="492" height="376" alt="image" src="https://github.com/user-attachments/assets/1b1af8c6-a09a-45f0-a93e-ef1635b7d16d" />
+
+<br/>
+
+- 거리 제곱의 합(Sum_of_squared_distances, SSD)은 x, y 두 데이터의 차를 구해서 제곱한 값을 모두 더한 후 유사성을 측정하는 데 사용된다.
+    - 즉, 가장 가까운 클러스터 중심까지 거리를 제곱한 값의 합을 구할 때 사용
+        
+        ![image.png](attachment:944df1d0-b89e-4f0c-8f55-e20f9e4707cf:image.png)
+        
+    
+    - K가 증가하면 거리 제곱의 합은 0이 되는 경향이 있다.
+    - K를 최댓값 n(여기에서 샘플 수)으로 설정하면 각 샘플이 자체 클러스터를 형성하여 거리 제곱 합이 0과 같아지기 때문이다.
+    - 출력 그래프는 클러스터 개수(x축)에 따른 거리 제곱의 합(y축)을 보여준다.
+    - K가 6부터 0에 가까워지고 있으므로 K=5가 적정하다고 판단
 
 

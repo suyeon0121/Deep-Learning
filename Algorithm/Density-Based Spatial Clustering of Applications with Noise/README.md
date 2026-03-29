@@ -14,6 +14,8 @@
 <img width="784" height="320" alt="image" src="https://github.com/user-attachments/assets/3271a557-17bd-416f-b434-5fef0d050c57" />
 
 <br/>
+<br/>
+<br/>
 
 밀도 기반 군집 분석을 이용한 군집 방법은 다음 절차에 따라 진행된다. 
 

@@ -28,5 +28,9 @@
 
 <br/>
 
-<img width="570" height="379" alt="image" src="https://github.com/user-attachments/assets/c2c44391-013c-4b69-940e-5a69468f3423" />
+<img width="787" height="579" alt="image" src="https://github.com/user-attachments/assets/0cf7e777-d78f-499d-828b-3bb2d09c075f" />
+
+<br/>
+- 선의 길이는 데이터 간의 유클리드 거리를 의미
+- KNN은 이 선의 길이가 가장 짧은 순서대로 이웃을 맺음
 

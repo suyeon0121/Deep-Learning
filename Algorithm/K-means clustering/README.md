@@ -18,10 +18,9 @@
 <img width="698" height="368" alt="image" src="https://github.com/user-attachments/assets/cc5c6c7d-ebf5-4cb9-adb1-e2c25d5306bc" />
 
 <br/>
+<br/>
 
 - K-평균 군집화 알고리즘은 다음 상황에서 데이터 분류가 원하는 결과와 다르게 발생할 수 있으므로 사용하지 않는 것이 좋다. 
-
-<br/>
 
 **데이터가 비선형일 때**
 

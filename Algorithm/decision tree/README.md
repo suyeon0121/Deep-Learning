@@ -23,6 +23,7 @@
 <img width="391" height="118" alt="image" src="https://github.com/user-attachments/assets/f6c771ae-3e1f-40e5-b8dd-e4608fb8972f" />
 
 <br/>
+
 - True Negative(97명): 실제로 사망한 97명을 모델이 사망할 것이라고 정확히 맞춘 부분
 - True Positive(50명): 실제로 생존한 50명을 모델이 생존할 것이라고 정확히 맞춘 부분
 - False Positive(15명): 실제로는 사망했는데 모델이 생존했을 것으로 오진

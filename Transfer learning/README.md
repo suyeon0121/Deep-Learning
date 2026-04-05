@@ -18,11 +18,8 @@
   - 데이터 분류기(완전연결층): 추출된 특성을 입력받아 최종적으로 이미지에 대한 클래스를 분류하는 부분
 - 사전 훈련된 네트워크의 합성곱층(가중치 고정)에 새로운 데이터를 통과시키고, 그 출력을 데이터 분류기에서 훈련시킨다.
 
-
-### 결과 
-
 <br/>
 
-<img width="1808" height="321" alt="image" src="https://github.com/user-attachments/assets/65f876ea-0abd-49b5-8c11-65d640941c50" />
+<img width="507" height="382" alt="image" src="https://github.com/user-attachments/assets/276e617e-edb5-4e58-8392-c18a2f8dba05" />
 
 <br/>

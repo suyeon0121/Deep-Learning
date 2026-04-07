@@ -4,8 +4,6 @@
 
 <br/>
 
-<br/>
-
 - C1에서 5x5 합성곱 연산 후 28x28 크기의 특성 맵 여섯 개를 생성한다.
 - S2에서 다운 샘플링하여 특성 맵 크기를 14x14로 줄인다.
 - 다시 C3에서 5x5 합성곱 연산하여 10x10 크기의 특성 맵 16개를 생성하고, S4에서 다운 샘플링하여 특성 맵 크기를 5x5로 줄인다.
@@ -20,6 +18,7 @@
 <img width="567" height="241" alt="image" src="https://github.com/user-attachments/assets/6fc1e4c3-10ce-49b0-91f6-f272ac8563dc" />
 
 <br/>
+<br/>
 
 - 구현해볼 신경망 구조 
 
@@ -27,6 +26,7 @@
 
 <img width="570" height="119" alt="image" src="https://github.com/user-attachments/assets/a669f632-836e-439e-bb6e-158b4962f5f9" />
 
+<br/>
 <br/>
 
 - 32x32 크기의 이미지에 합성곱층과 최대 풀링층이 쌍으로 두 번 적용된 후 완전연결층을 거쳐 이미지가 분류되는 신경망이다.
